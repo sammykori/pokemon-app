@@ -29,13 +29,28 @@ function App() {
       setLoading(false)
       setNextPageURL(res.data.next)
       setPrevPageURL(res.data.previous)
-      setPokemon(res.data.results)
+      // setPokemon(res.data.results)
+      const data = res.data.results
+      //fetch image of the pokemon
+      createPokemonObject(data)
+
     }).catch(function(error){
       console.log(error)
     });
     return () => cancel()
   }, [currentPageURL])
 
+  function createPokemonObject(result){
+    result.forEach(async(poke) => {
+      axios.get(currentPageURL+poke.name)
+      .then(function (res){
+        setPokemon(currentList => [...currentList, res.data])
+      })
+      .catch(function(error){
+        console.log(error)
+      } ) 
+    })
+  }
 // Render Loading until while getting data
 if (loading) return "Loading..."
 
