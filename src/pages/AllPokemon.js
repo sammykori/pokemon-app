@@ -4,8 +4,10 @@ import PokemonItemCard from "../components/PokemonItemCard";
 import Search from "../components/Search";
 import DetailPokemon from "./DetailPokemon";
 
-function AllPokemon({pokemon, next, prev, onSearch, infoPokemon, pokeId}){
+function AllPokemon({pokemon, next, prev, onSearch}){
+    //Stores an Index of Pokemon data to be displayed in DetailPokemon.js
     const [pokeDex, setPokeDex] = useState()
+    //Stores an Index of Pokemon data to be compare in DetailPokemon.js
     const [compare, setCompare] = useState();
     
 return(
@@ -13,7 +15,7 @@ return(
         <div className="h-full overflow-y-auto">
             <div className="flex justify-between pl-20 pr-20 items-center">
                 <h1 className="text-2xl text-red-900 p-2 font-bold " >All Pokemon</h1>
-                <Search onSearchChange ={onSearch} />
+                <Search onSearch={onSearch}/>
             </div>
             <div>
                 <div className="flex flex-wrap items-center justify-between">
@@ -27,8 +29,6 @@ return(
             <DetailPokemon index={compare}/>
         </div>
     </section> 
-    
-    
 );
 }
 

@@ -5,7 +5,9 @@ import axios from "axios"
 
 
 function DetailPokemon({index}){
-    console.log(index)
+    function info(){
+        alert("Still working on it");
+    }
     return(
         <>
           {
@@ -78,7 +80,7 @@ function DetailPokemon({index}){
                                     <h1>Species</h1>
                                     <h1>{index.species.name}</h1>
                                 </div>
-                                <button className="bg-green-600 text-white w-64 rounded-md px-2 py-1">More Information</button>
+                                <button className="bg-green-600 text-white w-64 rounded-md px-2 py-1" onClick={info}>More Information</button>
                             </div>
                             <h1></h1>
                         </div>

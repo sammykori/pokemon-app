@@ -6,10 +6,12 @@ import FavoriteContext from "../store/favorite-context"
 
 function PokemonItemCard(props){
     const favoriteCtx = useContext(FavoriteContext);
-    const [compareToggle, setCompareToggle] = useState(false)
+    // const [compareToggle, setCompareToggle] = useState(false)
 
+    //add favorite pokemon id
     const itemIsFavorite = favoriteCtx.itemFavorite(props.pokemon.id)
 
+    //Toggle betwwen favorited and non-favorited
     function toggleFavorites(){
         if(itemIsFavorite){
             favoriteCtx.removeFavorite(props.pokemon.id);
@@ -23,10 +25,13 @@ function PokemonItemCard(props){
             );
         }
         }
+
+        // Show Pokemon details
         function detailHandle(){
             props.infoPokemon(props.pokemon)
-            setCompareToggle(true)
+            // setCompareToggle(true)
         }
+        //Show Pokemon Compare Details
         function compareHandle(){
             props.makeCompare(props.pokemon)
         }
@@ -40,7 +45,7 @@ function PokemonItemCard(props){
                     backgroundSize: "contain"
                     }} 
                     className="flex flex-row justify-between w-max-w-0 h-20 rounded-t-xl p-1" onClick={detailHandle}>
-                        {compareToggle?<SwitchHorizontalIcon onClick={compareHandle}  className={"hover:cursor-pointer h-4 w-4 text-green-600"}/>: null}
+                        <SwitchHorizontalIcon onClick={compareHandle}  className={"hover:cursor-pointer h-4 w-4 text-green-600"}/>
                         <HeartIcon onClick={toggleFavorites} className={itemIsFavorite?"hover:cursor-pointer h-4 w-4 text-blue":"hover:cursor-pointer h-4 w-4 text-red-900"}/>
                     </div>
                 

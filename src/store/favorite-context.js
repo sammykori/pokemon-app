@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 
+//Stores the state and methods of the Favorite Context
 const FavoriteContext = createContext({
     favorites: [],
     totalFavorites: 0,
