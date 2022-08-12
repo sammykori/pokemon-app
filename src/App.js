@@ -7,6 +7,7 @@ import FavoritePokemon from "./pages/FavoritePokemon";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { FavoriteContextProvider } from "./store/favorite-context"
+import _ from 'lodash'
 
 function App() {
   //This state holds the data
@@ -66,7 +67,11 @@ function prevPage(){
   setPokemon([])
   setCurrentPageURL(prevPageURL);
 }
-
+function onSearchChange(){
+  const filtered = _.filter(pokemon, (poke) => {
+    return 1;
+ })
+}
 // Render Loading until while getting data
 if (loading) return "Loading..."
 
@@ -76,8 +81,10 @@ if (loading) return "Loading..."
         <BrowserRouter>
           <MainNavigations/>
           <Routes>
-            <Route path="/" exact={true} element={<AllPokemon pokemon={pokemon} next={nextPageURL ? nextPage : null} prev={prevPageURL ? prevPage : null} />}/>
-            <Route path="/detail" exact={true} element={<DetailPokemon />} />
+            <Route path="/" exact={true} element={<AllPokemon pokemon={pokemon} next={nextPageURL ? nextPage : null} prev={prevPageURL ? prevPage : null} onSearch={onSearchChange}/>}/>
+            <Route path="/detail" exact={false} element={<DetailPokemon />} >
+              <Route path=":id" exact={false} element={<DetailPokemon/>}/>
+            </Route>
             <Route path="/favorites" exact={true} element={<FavoritePokemon />} />
           </Routes>
         </BrowserRouter>
