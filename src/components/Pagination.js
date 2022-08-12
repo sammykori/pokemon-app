@@ -1,11 +1,14 @@
 import React from 'react'
+import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/solid'
 
 export default function Pagination({next, prev}) {
   return (
-    <div className='border'>
+    <div className='flex flex-row border items-center justify-between'>
+        <div className='float-left m-4'>
+            {prev && <ArrowLeftIcon className='w-6 h-6 text-red-900' onClick={prev}/>}
+        </div>
         <div className='float-right m-4'>
-            {prev && <button className='p-2 rounded-xl bg-red-900 text-white m-2' onClick={prev}>Previous</button>}
-            {next && <button className='p-2 rounded-xl bg-red-900 text-white m-2' onClick={next}>Next</button>}
+            {next && <ArrowRightIcon className='w-6 h-6 text-red-900'  onClick={next}/>}
         </div>
         
     </div>
