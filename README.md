@@ -33,7 +33,17 @@ This task is designed to assess how you will go about building a web application
 * Can be zipped up and sent to us via email or hosted on GitHub.
 * Please ensure that with your solution you include the following documentation (this can be included as part of a `README.md` or separate document)
   * A brief "Getting Started guide" on how to open the project locally
+    - Install yarn in your command line
+    - Run yarn istall to install all dependencies for this project
+    - Run yarn start to start the project 
   * If you used any particular libraries why did you choose them?
+   - I used axios to make my API calls because it is easy to make multiple simultaneous requests
+   - I used Tailwindcss because it is very easy to add your styling in the same page as your compoonents
   * Did you have any challenges and if so, how did you overcome them?
+    - I had some challenges understanding (generations) in the API maybe because I'm not familiar with pokemons  
+    - I also had challenges rendering all the data of the pokemon 
+    - Time was a huge constraint because I did not have the time design the UI before implementing to use the right UI element to display the information
   * Did you add any extra features?
+  - I added a count for favorite pokemons selected
   * If you had more time, what else would you implement?
+  - I would improve the UI with modals, pop-ups and drop downs to display all the information of the pokemon 

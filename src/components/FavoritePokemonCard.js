@@ -1,7 +1,6 @@
 import React from "react";
-import {useContext, useState} from "react"
+import {useContext} from "react"
 import { HeartIcon } from '@heroicons/react/solid'
-import { SwitchHorizontalIcon } from '@heroicons/react/solid'
 import FavoriteContext from "../store/favorite-context"
 
 function FavoritePokemonCard(props){
